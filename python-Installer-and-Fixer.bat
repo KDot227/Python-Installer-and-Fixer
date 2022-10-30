@@ -72,4 +72,6 @@ echo         } >> worker.ps1
 echo } >> worker.ps1
 powershell.exe -ExecutionPolicy Bypass -File worker.ps1
 del worker.ps1
+::your code here if u want
+::NOTE THAT ALL OF THIS WILL BE RUN WITH ADMIN
 exit
