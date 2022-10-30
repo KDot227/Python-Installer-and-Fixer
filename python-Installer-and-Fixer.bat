@@ -2,13 +2,11 @@
 
 echo Made by K.Dot for Python kids and skids
 
-:Check_uac_admin
-echo Checking for admin rights...
-net session >nul 2>&1
-if %errorlevel% equ 0 goto got_admin
-echo This script requires admin rights!
-timeout 5 >nul
-exit
+@echo off
+if not "%1"=="am_admin" (
+    powershell -Command "Start-Process -Verb RunAs -FilePath '%0' -ArgumentList 'am_admin'"
+    exit /b
+)
 
 :got_admin
 echo $html = Invoke-WebRequest -Uri "https://www.python.org/downloads" -UseBasicParsing > worker.ps1
