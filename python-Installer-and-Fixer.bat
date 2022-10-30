@@ -1,7 +1,16 @@
 @echo off
 
-echo made by K.Dot
+echo Made by K.Dot for Python kids and skids
 
+:Check_uac_admin
+echo Checking for admin rights...
+net session >nul 2>&1
+if %errorlevel% equ 0 goto got_admin
+echo This script requires admin rights!
+timeout 5 >nul
+exit
+
+:got_admin
 echo $html = Invoke-WebRequest -Uri "https://www.python.org/downloads" -UseBasicParsing > worker.ps1
 echo $newest_version = $html.Links ^| Where-Object {$_.href -like "https://www.python.org/ftp/python/*/python-*amd64.exe"} ^| Select-Object -Last 1 -ExpandProperty href >> worker.ps1
 echo $ver = $newest_version -replace "https://www.python.org/ftp/python/", "" -replace "/python-.*", "" >> worker.ps1
