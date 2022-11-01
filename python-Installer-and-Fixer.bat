@@ -13,7 +13,7 @@ echo $html = Invoke-WebRequest -Uri "https://www.python.org/downloads" -UseBasic
 echo $newest_version = $html.Links ^| Where-Object {$_.href -like "https://www.python.org/ftp/python/*/python-*amd64.exe"} ^| Select-Object -Last 1 -ExpandProperty href >> worker.ps1
 echo $ver = $newest_version -replace "https://www.python.org/ftp/python/", "" -replace "/python-.*", "" >> worker.ps1
 echo.  >> worker.ps1
-echo #Made by K.Dot >> worker.ps1
+echo #Made by https://github.com/KDot227 >> worker.ps1
 echo.  >> worker.ps1
 echo try { >> worker.ps1
 echo     python.exe --version >> worker.ps1
@@ -26,7 +26,7 @@ echo     $status = "Not Working" >> worker.ps1
 echo } >> worker.ps1
 echo.  >> worker.ps1
 echo if ($status -eq "Working") { >> worker.ps1
-echo     Write-Host "Python is working amd added to path" >> worker.ps1
+echo     Write-Host "Python is working and added to path" >> worker.ps1
 echo     Start-Sleep -s 3 >> worker.ps1
 echo     EXIT >> worker.ps1
 echo } >> worker.ps1
